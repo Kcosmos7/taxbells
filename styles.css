@@ -60,7 +60,7 @@ button:hover {
 
 /* Logo in the navbar */
 .nav-logo {
-    height: 45px;
-    width: auto;
+    height: auto;
+    width: 4%;
     margin-right: 15px; /* Add some space between logo and nav links */
 }
