@@ -30,6 +30,12 @@ header nav ul li a {
     text-decoration: none;
 }
 
+header nav ul li a:hover {
+    background-color: white; /* Change background color on hover */
+    color: #b8b6b6; /* Change text color on hover */
+    border-radius: 5px; /* Optional: make it look smooth with rounded corners */
+}
+
 section {
     padding: 60px;
     text-align: center;
