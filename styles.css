@@ -48,3 +48,19 @@ button {
 button:hover {
     background-color: #555;
 }
+
+/* Navbar styling */
+.navbar {
+    list-style-type: none;
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Aligns image and text vertically */
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+/* Logo in the navbar */
+.nav-logo {
+    height: 45px;
+    width: auto;
+    margin-right: 15px; /* Add some space between logo and nav links */
+}
