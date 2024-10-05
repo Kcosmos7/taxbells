@@ -1,3 +1,16 @@
+/* Base body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center; /* You can limit this to specific sections if needed */
+}
+
+
+
+
+
+
 /* Navbar container to align logo and nav items */
 .nav-container {
     display: flex;
