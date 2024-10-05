@@ -51,7 +51,7 @@ button:hover {
 /* Navbar styling */
 .navbar {
     list-style-type: none;
-    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: space-between;
     align-items: center; /* Aligns image and text vertically */
     padding: 10px;
 }
