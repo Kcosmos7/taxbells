@@ -24,7 +24,6 @@
 .navbar li a {
     color: white;
     text-decoration: none;
-    padding: 5px; /* Padding for hover effect */
     display: inline-block; /* Inline-block for better alignment */
 }
 
