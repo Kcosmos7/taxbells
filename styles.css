@@ -55,12 +55,11 @@ button:hover {
     display: flex; /* Flexbox for horizontal alignment */
     align-items: center; /* Aligns image and text vertically */
     padding: 10px;
-    background-color: #f8f8f8;
 }
 
 /* Logo in the navbar */
 .nav-logo {
     height: auto;
-    width: 4%;
-    margin-right: 15px; /* Add some space between logo and nav links */
+    width: 7%;
+    margin-right: 5px; /* Add some space between logo and nav links */
 }
