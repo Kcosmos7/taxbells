@@ -23,7 +23,7 @@ header {
 .nav-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Vertically align the logo and text */
 }
 
 /* Navbar styles */
@@ -32,6 +32,7 @@ header {
     display: flex;
     margin: 0;
     padding: 0;
+    align-items: center; /* Ensure items in the navbar are vertically aligned */
 }
 
 /* Individual list item styles */
@@ -44,6 +45,7 @@ header {
     color: white;
     text-decoration: none;
     padding: 5px; /* Padding for hover effect */
+    display: inline-block; /* Inline-block for better alignment */
 }
 
 /* Link hover effect */
@@ -58,6 +60,7 @@ header {
     height: auto;
     width: 40px; /* Consistent logo width */
     margin-right: 10px; /* Space between logo and nav links */
+    vertical-align: middle; /* Align the logo vertically with text */
 }
 
 /* Button styling */
