@@ -1,29 +1,9 @@
-/* Global reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Base body styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center; /* You can limit this to specific sections if needed */
-}
-
-/* Header styling */
-header {
-    background-color: #333;
-    padding: 10px 0; /* Add some padding for better spacing */
-}
-
 /* Navbar container to align logo and nav items */
 .nav-container {
     display: flex;
     justify-content: center;
     align-items: center; /* Vertically align the logo and text */
+    flex-direction: row; /* Ensures that logo and nav links are in a row */
 }
 
 /* Navbar styles */
@@ -63,24 +43,8 @@ header {
     vertical-align: middle; /* Align the logo vertically with text */
 }
 
-/* Button styling */
-button {
+/* Ensure header has proper padding and spacing */
+header {
     background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-/* Heading and paragraph spacing */
-h1 {
-    margin-top: 20px;
-}
-
-p {
-    margin-top: 10px;
+    padding: 10px 0; /* Add some padding for better spacing */
 }
