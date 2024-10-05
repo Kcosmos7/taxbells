@@ -1,41 +1,66 @@
+/* Global reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Base body styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    text-align: center;
+    text-align: center; /* You can limit this to specific sections if needed */
 }
 
+/* Header styling */
 header {
     background-color: #333;
-    text-align: center;
+    padding: 10px 0; /* Add some padding for better spacing */
 }
 
-header nav ul {
+/* Navbar container to align logo and nav items */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar styles */
+.navbar {
     list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-header nav ul li {
-    display: inline;
+/* Individual list item styles */
+.navbar li {
     margin: 0 15px;
 }
 
-header nav ul li a {
+/* Navigation link styles */
+.navbar li a {
     color: white;
     text-decoration: none;
+    padding: 5px; /* Padding for hover effect */
 }
 
-header nav ul li a:hover {
+/* Link hover effect */
+.navbar li a:hover {
     color: #787777; /* Change text color on hover */
-    border-radius: 5px; /* Optional: make it look smooth with rounded corners */
+    background-color: #444; /* Visible background on hover */
+    border-radius: 5px; /* Smooth rounded corners */
 }
 
+/* Logo styling */
+.nav-logo {
+    height: auto;
+    width: 40px; /* Consistent logo width */
+    margin-right: 10px; /* Space between logo and nav links */
+}
 
+/* Button styling */
 button {
     background-color: #333;
     color: white;
@@ -48,17 +73,11 @@ button:hover {
     background-color: #555;
 }
 
-/* Navbar styling */
-.navbar {
-    list-style-type: none;
-    justify-content: space-between;
-    align-items: center; /* Aligns image and text vertically */
-    padding: 10px;
+/* Heading and paragraph spacing */
+h1 {
+    margin-top: 20px;
 }
 
-/* Logo in the navbar */
-.nav-logo {
-    height: auto;
-    width: 4%;
-    margin-right: 5px; /* Add some space between logo and nav links */
+p {
+    margin-top: 10px;
 }
