@@ -1,66 +1,128 @@
-/* Base body styling */
+/* Base styling */
 body {
-    font-family: 'Inter', Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center; /* You can limit this to specific sections if needed */
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
 }
 
-
-
-
-
-
-/* Navbar container to align logo and nav items */
-.nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertically align the logo and text */
-    flex-direction: row; /* Ensures that logo and nav links are in a row */
-}
-
-/* Navbar styles */
-.navbar {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    align-items: center; /* Ensure items in the navbar are vertically aligned */
-}
-
-/* Individual list item styles */
-.navbar li {
-    margin: 0 15px;
-}
-
-/* Navigation link styles */
-.navbar li a {
-    color: white;
-    text-decoration: none;
-    display: inline-block; /* Inline-block for better alignment */
-}
-
-/* Link hover effect */
-.navbar li a:hover {
-    color: #787777; /* Change text color on hover */
-    background-color: #444; /* Visible background on hover */
-    border-radius: 5px; /* Smooth rounded corners */
-}
-
-/* Logo styling */
-.nav-logo {
-    height: auto;
-    width: 40px; /* Consistent logo width */
-    margin-right: 10px; /* Space between logo and nav links */
-    vertical-align: middle; /* Align the logo vertically with text */
-}
-
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-}
-
-/* Ensure header has proper padding and spacing */
 header {
-    background-color: #333;
-    padding: 10px 0; /* Add some padding for better spacing */
+  background-color: #333;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.nav-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.navbar {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar li a:hover {
+  color: #eee;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.business-card {
+  width: 60%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+hr {
+  height: 3px;
+  border: none;
+  background-color: #111;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+.highlight {
+  font-family: Impact, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin: 3rem 0 1rem;
 }
