@@ -1,6 +1,6 @@
 /* Base body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     text-align: center; /* You can limit this to specific sections if needed */
@@ -53,6 +53,10 @@ body {
     width: 40px; /* Consistent logo width */
     margin-right: 10px; /* Space between logo and nav links */
     vertical-align: middle; /* Align the logo vertically with text */
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
 }
 
 /* Ensure header has proper padding and spacing */
