@@ -15,12 +15,17 @@
         <a href="https://kcosmos7.github.io/taxbells/">
           <img src="favicon.png" alt="Taxbells official logo" class="nav-logo" />
         </a>
-        <ul class="navbar">
-          <li><a href="https://kcosmos7.github.io/taxbells/">Home</a></li>
-          <li><a href="/payOnline">Pay Online</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/register">Register</a></li>
-          <li><a href="/newsFeed">News Feed</a></li>
+        <button class="menu-toggle" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="navbar" id="primary-navigation" role="menubar">
+          <li role="none"><a role="menuitem" href="https://kcosmos7.github.io/taxbells/" class="active">Home</a></li>
+          <li role="none"><a role="menuitem" href="/payOnline">Pay Online</a></li>
+          <li role="none"><a role="menuitem" href="/contact">Contact</a></li>
+          <li role="none"><a role="menuitem" href="/register">Register</a></li>
+          <li role="none"><a role="menuitem" href="/newsFeed">News Feed</a></li>
         </ul>
       </div>
     </nav>
@@ -43,19 +48,22 @@
         <h2>Understanding Your Taxes</h2>
         <div class="paragraph-grid">
           <p>
-            Taxes are an essential part of our financial lives, and understanding how they work can help you make informed decisions throughout the year. The U.S. tax system operates on a pay-as-you-earn basis, meaning most taxpayers have taxes withheld from their paychecks throughout the year. When you file your annual tax return, you're essentially reconciling what you've already paid with what you actually owe based on your total income, deductions, and credits.
+            Taxes are an essential part of our financial lives, and understanding how they work can help you make informed decisions throughout the year. The U.S. tax system operates on a pay-as-you-earn basis, meaning most taxpayers have taxes withheld from their paychecks throughout the year.
           </p>
           <p>
-            One of the most important concepts to understand is the difference between deductions and credits. Tax deductions reduce your taxable income, while tax credits directly reduce the amount of tax you owe—making credits generally more valuable. Common deductions include mortgage interest, student loan interest, and charitable contributions. Popular credits include the Earned Income Tax Credit (EITC), Child Tax Credit, and education credits. Maximizing these opportunities requires careful planning and documentation throughout the year.
+            One of the most important concepts to understand is the difference between deductions and credits. Tax deductions reduce your taxable income, while tax credits directly reduce the amount of tax you owe—making credits generally more valuable.
           </p>
           <p>
-            Filing your tax return accurately and on time is crucial for avoiding penalties and interest charges. The standard deadline is April 15th each year, though extensions are available if you need more time. Whether you're filing as an individual, a small business owner, or have complex financial situations, professional tax preparation can help ensure you're taking advantage of all available tax benefits while remaining compliant with IRS regulations. At Taxbells, we specialize in helping taxpayers navigate these complexities and maximize their refunds.
+            Filing your tax return accurately and on time is crucial for avoiding penalties and interest charges. The standard deadline is April 15th each year, though extensions are available if you need more time.
           </p>
           <p>
-            Tax planning isn't just an annual activity—it's a year-round process. Keeping organized records of your income, expenses, and potential deductions throughout the year makes tax preparation much smoother. Consider setting up a system to track receipts, charitable donations, business expenses, and other tax-related documents. This proactive approach not only saves time during tax season but can also help you identify opportunities to reduce your tax liability before the year ends.
+            Tax planning isn't just an annual activity—it's a year-round process. Keeping organized records of your income, expenses, and potential deductions throughout the year makes tax preparation much smoother.
           </p>
           <p>
-            Changes in tax laws occur regularly, and staying informed about these updates can significantly impact your tax situation. Major life events such as marriage, having children, buying a home, starting a business, or retirement all have tax implications. Working with experienced tax professionals ensures you're aware of how these changes affect you personally and can help you plan accordingly to optimize your tax position both now and in the future.
+            Changes in tax laws occur regularly, and staying informed about these updates can significantly impact your tax situation. Major life events such as marriage, having children, buying a home, starting a business, or retirement all have tax implications.
+          </p>
+          <p>
+            If you are self-employed or operate a small business, understanding your quarterly estimated tax obligations is crucial. Unlike traditional employees, self-employed individuals must periodically pay the IRS directly throughout the year.
           </p>
         </div>
       </article>
@@ -64,8 +72,21 @@
 
   <footer>
     <div class="container">
-      &copy; 2025 Taxbells LLC. All rights reserved.
+      &copy 2019 @ Taxbells LLC | All Rights Reserved Disclaimer: This firm is not a CPA firm or an attorney firm and not a substitute for any of these. 
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('primary-navigation');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
 </body>
 </html>
