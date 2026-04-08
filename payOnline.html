@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxbells: Pay Online</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="payOnline.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-container container">
+        <a href="https://kcosmos7.github.io/taxbells/">
+          <img src="favicon.png" alt="Taxbells official logo" class="nav-logo" />
+        </a>
+        <button class="menu-toggle" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="navbar" id="primary-navigation" role="menubar">
+          <li role="none"><a role="menuitem" href="./index.html">Home</a></li>
+          <li role="none"><a role="menuitem" href="./payOnline.html" class="active">Pay Online</a></li>
+          <li role="none"><a role="menuitem" href="/contact">Contact</a></li>
+          <li role="none"><a role="menuitem" href="/register">Register</a></li>
+          <li role="none"><a role="menuitem" href="/newsFeed">News Feed</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="payment-section">
+      <h1>Make a Payment</h1>
+      <p class="subtitle">Secure payment processing for Taxbells LLC</p>
+      
+      <div class="payment-container">
+        <form id="payment-form" class="payment-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name" />
+          </div>
+          
+          <div class="form-group amount-group">
+            <label for="amount">Pay</label>
+            <div class="amount-input-wrapper">
+              <input type="number" id="amount" name="amount" required min="1" step="0.01" placeholder="0.00" />
+              <span class="currency">USD</span>
+            </div>
+          </div>
+          
+          <div class="payment-buttons">
+            <button type="button" class="payment-btn paypal-btn" onclick="processPayment('paypal')">
+              <span>Pay with</span>
+              <span class="paypal-text">PayPal</span>
+            </button>
+            
+            <button type="button" class="payment-btn venmo-btn" onclick="processPayment('venmo')">
+              <span>Pay with</span>
+              <span class="venmo-text">venmo</span>
+            </button>
+            
+            <button type="button" class="payment-btn paylater-btn" onclick="processPayment('paylater')">
+              <span>Pay Later</span>
+              <span class="paypal-text">PayPal</span>
+            </button>
+            
+            <button type="button" class="payment-btn card-btn" onclick="showCardForm()">
+              <svg class="card-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span>Debit or Credit Card</span>
+            </button>
+          </div>
+          
+          <div id="card-form" class="card-form hidden">
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiry">Expiry Date</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" />
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" />
+              </div>
+            </div>
+            <button type="submit" class="payment-btn card-submit-btn">Pay Now</button>
+          </div>
+          
+          <div class="powered-by">
+            <span>Powered by</span>
+            <span class="paypal-text">PayPal</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy 2019 @ Taxbells LLC | All Rights Reserved Disclaimer: This firm is not a CPA firm or an attorney firm and not a substitute for any of these. 
+    </div>
+  </footer>
+
+  <div id="payment-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title">Payment Processing</h2>
+      <p id="modal-message">Your payment is being processed...</p>
+      <div id="modal-spinner" class="spinner"></div>
+      <button id="modal-action" class="modal-btn hidden" onclick="closeModal()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('primary-navigation');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function() {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+    })();
+
+    function showCardForm() {
+      const cardForm = document.getElementById('card-form');
+      cardForm.classList.toggle('hidden');
+    }
+
+    function processPayment(method) {
+      const fullName = document.getElementById('fullName').value;
+      const amount = document.getElementById('amount').value;
+
+      if (!fullName || !amount) {
+        showModal('Error', 'Please fill in your full name and payment amount.', false);
+        return;
+      }
+
+      if (amount <= 0) {
+        showModal('Error', 'Please enter a valid amount greater than 0.', false);
+        return;
+      }
+
+      showModal('Processing', 'Connecting to ' + method + '...', true);
+
+      setTimeout(() => {
+        hideSpinner();
+        showModal('Success', 'Payment of $' + amount + ' via ' + method + ' has been initiated for ' + fullName + '.', false);
+      }, 2000);
+    }
+
+    function showModal(title, message, showSpinner) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-message').textContent = message;
+      document.getElementById('modal-spinner').classList.toggle('hidden', !showSpinner);
+      document.getElementById('modal-action').classList.toggle('hidden', showSpinner);
+      document.getElementById('payment-modal').classList.remove('hidden');
+    }
+
+    function hideSpinner() {
+      document.getElementById('modal-spinner').classList.add('hidden');
+      document.getElementById('modal-action').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('payment-modal').classList.add('hidden');
+    }
+
+    document.getElementById('payment-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value;
+      const amount = document.getElementById('amount').value;
+      const cardNumber = document.getElementById('cardNumber').value;
+      const expiry = document.getElementById('expiry').value;
+      const cvv = document.getElementById('cvv').value;
+
+      if (!fullName || !amount || !cardNumber || !expiry || !cvv) {
+        showModal('Error', 'Please fill in all card details.', false);
+        return;
+      }
+
+      showModal('Processing', 'Processing your card payment...', true);
+
+      setTimeout(() => {
+        hideSpinner();
+        showModal('Success', 'Card payment of $' + amount + ' has been processed successfully for ' + fullName + '.', false);
+        document.getElementById('card-form').classList.add('hidden');
+        this.reset();
+      }, 2000);
+    });
+
+    document.getElementById('cardNumber').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      value = value.replace(/(.{4})/g, '$1 ').trim();
+      e.target.value = value;
+    });
+
+    document.getElementById('expiry').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+      }
+      e.target.value = value;
+    });
+
+    document.getElementById('cvv').addEventListener('input', function(e) {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    });
+  </script>
+</body>
+</html>
